@@ -14,7 +14,8 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
         {/* Logo */}
         <div className="mb-4">
           <div className="inline-flex items-center justify-center mt-10">
-            <img src="/logo.png" alt="Event Logo" className="w-128 h-auto max-w-full" />
+          <img src="/logo.png" alt="Event Logo" className="w-128 h-auto mx-auto" />
+
           </div>
         </div>
 
@@ -24,10 +25,10 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
         </p>
 
         {/* Event Details */}
-        <div className="flex flex-col items-center grid grid-cols-3">
+        <div className="flex flex-col items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
           <div className="flex items-center mb-3">
             <Calendar className="w-6 h-6 text-white mr-4" />
-            <p className="text-white text-lg">August 6, 2025<br/>Wednesday</p>
+            <p className="text-white text-lg">August 6, 2025, Wednesday</p>
           </div>
           
           <div className="flex items-center mb-3">
@@ -36,7 +37,7 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
           </div>
           
           <div className="flex items-center mb-3">
-            <MapPin className="w-10 h-10 text-white mr-4" />
+            <MapPin className="w-6 h-6 text-white mr-4" />
             <p className="text-white text-lg">Kamaraj Auditorium, Dr. A.P.J. Abdul Kalam Block, AB3</p>
           </div>
         </div>

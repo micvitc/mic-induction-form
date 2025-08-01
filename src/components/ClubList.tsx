@@ -44,10 +44,10 @@ const LogosSection = () => {
   ];
 
   return (
-    <div className="w-full py-12">
+    <div className="w-full py-6">
       <h2 className="text-3xl font-bold text-white text-center mb-6">Clubs Partners</h2>
       
-      <div className="flex justify-center items-center gap-5 px-4  max-w-full mx-auto">
+      <div className="flex flex-wrap lg:flex-nowrap justify-center gap-5 px-4 max-w-full mx-auto">
         {logos.map((logoData, index) => (
           <LogoWithHover
             key={index}
