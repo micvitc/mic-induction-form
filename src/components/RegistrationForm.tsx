@@ -72,7 +72,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-48 h-full mb-6">
-            <img src='public/logo.png' className='w-48 w-full' />
+            <img src='/logo.png' className='w-48 w-full' />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-500 mb-4">
             Book your spot now!!
