@@ -14,7 +14,7 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
         {/* Logo */}
         <div className="mb-4">
           <div className="inline-flex items-center justify-center mt-10">
-            <img src="public/logo.png" alt="Event Logo" className="w-128 h-auto max-w-full" />
+            <img src="/logo.png" alt="Event Logo" className="w-128 h-auto max-w-full" />
           </div>
         </div>
 
