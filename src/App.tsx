@@ -47,7 +47,7 @@ function App() {
     <div 
       className="min-h-screen relative overflow-hidden"
       style={{
-        backgroundImage: 'url(public/background.png)',
+        backgroundImage: 'url(/background.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
