@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, User, Calendar, Hash, Mail, Users, Rocket } from 'lucide-react';
+import { saveFormData } from './client';
 
 interface RegistrationFormProps {
   onBack: () => void;
@@ -10,16 +11,29 @@ interface RegistrationFormProps {
 const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, registrationCount }) => {
   const [formData, setFormData] = useState({
     name: '',
-    year: '',
-    registerNumber: '',
+    year: 0,
+    reg_number: '',
     email: '',
-    willRegister: ''
+    is_attending: true
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    if (e.target.type === 'radio') {
+      setFormData(prev => ({ ...prev, is_attending: value === 'true' }));
+      return;
+    }
+    if (e.target.name === 'year') {
+      setFormData(prev => ({ ...prev, year: parseInt(value[0]) }));
+      return;
+    }
+    if (e.target.name === 'reg_number') {
+      setFormData(prev => ({ ...prev, reg_number: value.toUpperCase() }));
+      return;
+    }
     setFormData(prev => ({ ...prev, [name]: value }));
     // Clear error when user starts typing
     if (errors[name]) {
@@ -32,13 +46,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
 
     if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.year) newErrors.year = 'Year is required';
-    if (!formData.registerNumber.trim()) newErrors.registerNumber = 'Register number is required';
+    if (!formData.reg_number.trim()) newErrors.registerNumber = 'Register number is required';
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email';
     }
-    if (!formData.willRegister) newErrors.willRegister = 'Please select an option';
+    if (!formData.is_attending) newErrors.is_attending = 'Please select an option';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -47,6 +61,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      console.log('Form submitted:', formData);
       onSubmit(formData);
     }
   };
@@ -106,10 +121,10 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
                 className="w-full px-3 py-3 bg-white/10 border border-white/30 rounded-xl text-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300"
               >
                 <option value="" className="bg-black text-gray-800">Select your year</option>
-                <option value="1st Year" className="bg-black">1st Year</option>
-                <option value="2nd Year" className="bg-black">2nd Year</option>
-                <option value="3rd Year" className="bg-black">3rd Year</option>
-                <option value="4th Year" className="bg-black">4th Year</option>
+                <option value={1} className="bg-black">1st Year</option>
+                <option value={2} className="bg-black">2nd Year</option>
+                <option value={3} className="bg-black">3rd Year</option>
+                <option value={4} className="bg-black">4th Year</option>
               </select>
               {errors.year && <p className="text-red-400 text-sm mt-2">{errors.year}</p>}
             </div>
@@ -122,8 +137,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
               </label>
               <input
                 type="text"
-                name="registerNumber"
-                value={formData.registerNumber}
+                name="reg_number"
+                value={formData.reg_number}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300"
                 placeholder="Enter your register number"
@@ -152,33 +167,33 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
             <div>
               <label className="flex items-center text-white font-semibold mb-3">
                 <Users className="w-5 h-5 mr-2 text-white" />
-                Will you be registering for the event?
+                Will you be attending the event?
               </label>
               <div className="space-y-3">
                 <label className="flex items-center cursor-pointer">
                   <input
                     type="radio"
-                    name="willRegister"
-                    value="yes"
-                    checked={formData.willRegister === 'yes'}
+                    name="is_attending"
+                    value="true"
+                    checked={formData.is_attending === true}
                     onChange={handleInputChange}
                     className="w-4 h-4 text-white bg-transparent border-2 border-white/30 focus:ring-white focus:ring-2"
                   />
-                  <span className="ml-3 text-white">Yes, I will register</span>
+                  <span className="ml-3 text-white">Yes, I will attend</span>
                 </label>
                 <label className="flex items-center cursor-pointer">
                   <input
                     type="radio"
-                    name="willRegister"
-                    value="no"
-                    checked={formData.willRegister === 'no'}
+                    name="is_attending"
+                    value="false"
+                    checked={formData.is_attending === false}
                     onChange={handleInputChange}
                     className="w-4 h-4 text-gray-400 bg-transparent border-2 border-white/30 focus:ring-gray-400 focus:ring-2"
                   />
                   <span className="ml-3 text-white">No, I am occupied</span>
                 </label>
               </div>
-              {errors.willRegister && <p className="text-red-400 text-sm mt-2">{errors.willRegister}</p>}
+              {errors.is_attending && <p className="text-red-400 text-sm mt-2">{errors.is_attending}</p>}
             </div>
           </div>
 

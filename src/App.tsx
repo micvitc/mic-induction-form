@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import EventLanding from './components/EventLanding';
 import RegistrationForm from './components/RegistrationForm';
+import { saveFormData, getRegistrationCount } from './client';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<'landing' | 'registration'>('landing');
-  const [registrationCount, setRegistrationCount] = useState(127); // Starting count
+  const [registrationCount, setRegistrationCount] = useState(0); // Starting count
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleJoinNow = () => {
     setCurrentPage('registration');
@@ -14,11 +16,30 @@ function App() {
     setCurrentPage('landing');
   };
 
-  const handleRegistrationSubmit = (formData) => {
-    setRegistrationCount(prev => prev + 1);
+  useEffect(() => {
+    // Fetch initial registration count from Supabase
+    const fetchRegistrationCount = async () => {
+      try {
+        const count = await getRegistrationCount(); // Call to get the count
+        console.log('Initial Registration Count:', count);
+        setRegistrationCount(count);
+      } catch (error) {
+        console.error('Error fetching registration count:', error);
+      }
+    };
+
+    fetchRegistrationCount();
+  }, []);
+
+  const handleRegistrationSubmit = async (formData) => {
     // Here you would typically send data to a server
-    console.log('Registration Data:', formData.name, formData.year, formData.registerNumber, formData.email, formData.willRegister);
-    alert('Registration successful! Welcome to ClubCon!');
+    console.log('Registration Data:', formData.name, formData.year, formData.reg_number, formData.email, formData.is_attending);
+    const regCount = await saveFormData(formData).catch(error => {
+      console.error('Error saving registration:', error);
+    });
+    console.log('Registration Count:', regCount);
+    setHasSubmitted(true);
+    setRegistrationCount(regCount); 
     setCurrentPage('landing');
   };
 
@@ -65,6 +86,23 @@ function App() {
           />
         ))}
       </div>
+      {hasSubmitted && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white/10 backdrop-blur-md text-white border-1 border-white rounded-xl shadow-lg p-6 max-w-lg w-full text-center">
+            <h2 className="text-lg font-semibold text-white">
+              You have successfully registered your spot!<br/>
+              Join us at <br/><b>Kamaraj Auditorium</b> on<b> August 6, 2025 11:00 AM</b>
+            </h2>
+            <button
+              onClick={() => setHasSubmitted(false)}
+              className="mt-4 px-4 py-2 bg-white text-black rounded-lg hover:border-black transition"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

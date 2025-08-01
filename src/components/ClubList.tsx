@@ -22,12 +22,6 @@ const LogoWithHover = ({ logo, company, description, color }) => {
 
         </div>
         
-
-        {company === 'Artificial Intelligence Club' && (
-            <>
-            <img src='/trophy.svg' className='bg-black rounded-full absolute top-1 w-12 h-12 fill-white-100'/>
-        </>
-        )}
       
       {/* Hover Menu */}
       <div className="absolute mb-10 bottom-20 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 w-60 z-10 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-2000 pointer-events-none group-hover:pointer-events-auto border border-white/20">
