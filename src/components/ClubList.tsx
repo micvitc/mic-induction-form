@@ -24,7 +24,7 @@ const LogoWithHover = ({ logo, company, description, color }) => {
         
       
       {/* Hover Menu */}
-      <div className="absolute mb-10 bottom-20 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 w-60 z-10 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-2000 pointer-events-none group-hover:pointer-events-auto border border-white/20">
+      <div className="absolute mb-20 bottom-20 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 w-60 z-10 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-2000 pointer-events-none group-hover:pointer-events-auto border border-white/20">
         <h3 className="font-bold text-white mb-2">{company}</h3>
         <p className="text-white text-sm mb-3 mt-4">{description}</p>
       </div>
