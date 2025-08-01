@@ -38,7 +38,7 @@ const LogosSection = () => {
     { logo: '/android-club-logo.png', company: 'Android Club', description: 'Sustainable solutions for tomorrow', color: 'bg-green-500' },
     { logo: '/aic-logo.png', company: 'Artificial Intelligence Club', description: 'Leading innovation in technology solutions.', color: 'bg-blue-500' },
     { logo: '/mic-logo.png', company: 'Microsoft Innovations Club', description: 'Smart infrastructure for smart cities', color: 'bg-yellow-500' },
-    { logo: '/bic-logo.png', company: 'Business Innovators Club', description: 'Creative solutions, infinite possibilities', color: 'bg-purple-500' },
+    { logo: '/bic-logo.png', company: 'Business Innovation Community', description: 'Creative solutions, infinite possibilities', color: 'bg-purple-500' },
     { logo: '/cyscom-logo.png', company: 'Cyscom', description: 'Research and development excellence', color: 'bg-indigo-500' },
     { logo: '/codechef-logo.png', company: 'CodeChef VITC', description: 'Building the future, one step at a time', color: 'bg-pink-500' }
   ];
