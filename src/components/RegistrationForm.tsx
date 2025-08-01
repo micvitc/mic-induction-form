@@ -190,7 +190,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
               className="flex items-center justify-center px-6 py-3  rounded-xl text-white hover:bg-white/15 transition-all duration-300 transform hover:scale-105"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Event
+              Back to Home
             </button>
             
             <button
