@@ -80,13 +80,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
           <p className="text-gray-400 text-lg">Seats are filling up fast</p>
         </div>
 
-        {/* Registration Counter */}
-        <div className="absolute top-4 right-4 z-20 mt-1">
+        {/* Registration Counter to be added later */}
+        {/* <div className="absolute top-4 right-4 z-20 mt-1">
           <div className="inline-flex items-center backdrop-blur-md rounded-full px-6 py-3 border border-white/30">
             <Users className="w-5 h-5 text-white mr-2" />
             <span className="text-white font-semibold">{registrationCount} already registered!</span>
           </div>
-        </div>
+        </div> */}
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="bg-black backdrop-blur-md rounded-3xl p-8 border border-white/60 shadow-2xl">

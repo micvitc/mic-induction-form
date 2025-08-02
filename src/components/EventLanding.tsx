@@ -18,6 +18,13 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
 
           </div>
         </div>
+        <button
+          onClick={onJoinNow}
+          className="group lg:hidden block inline-flex items-center justify-center px-12 py-4 text-xl font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-full shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
+        >
+          <span className="relative z-10">JOIN NOW</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+        </button>
 
         
         <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -25,34 +32,53 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
         </p>
 
         {/* Event Details */}
-        <div className="flex flex-col items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
-          <div className="flex items-center mb-3">
+        {/* <div className="flex flex-col items-center grid grid-cols-1 lg:grid-cols-3 mb-12 mt-12 text-center ">
+          <div className="flex items-center justify-center mb-3">
             <Calendar className="w-6 h-6 text-white mr-4" />
-            <p className="text-white text-lg">August 6, 2025, Wednesday</p>
+            <p className="text-white text-lg">August 6, 2025</p>
           </div>
           
-          <div className="flex items-center mb-3">
+          <div className="flex items-center justify-center mb-3 ">
             <Clock className="w-6 h-6 text-white mr-4" />
-            <p className="text-white text-lg">11:00 AM - 01:30 PM</p>
+            <p className="text-white text-lg">11:30 AM - 01:30 PM</p>
           </div>
           
-          <div className="flex items-center mb-3">
+          <div className="flex items-center justify-center mb-3">
             <MapPin className="w-6 h-6 text-white mr-4" />
-            <p className="text-white text-lg">Kamaraj Auditorium, Dr. A.P.J. Abdul Kalam Block, AB3</p>
+            <p className="text-white text-lg">Kamaraj Auditorium</p>
+          </div>
+        </div> */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12 mt-12">
+          <div className="flex justify-start lg:justify-center">
+            <Calendar className="w-6 h-6 text-white mr-2 lg:mr-4" />
+            <p className="text-white text-lg">August 6, 2025</p>
+          </div>
+
+          <div className="flex justify-center lg:justify-center">
+            <Clock className="w-6 h-6 text-white mr-2 lg:mr-4" />
+            <p className="text-white text-lg">11:30 AM - 01:30 PM</p>
+          </div>
+
+          <div className="flex justify-end lg:justify-center lg:col-span-1">
+            <MapPin className="w-6 h-6 text-white mr-2 lg:mr-4" />
+            <p className="text-white text-lg">Kamaraj Auditorium</p>
           </div>
         </div>
 
-        {/* Registration Counter */}
-        <div className="absolute top-3 right-4 z-20 mt-1">
+
+
+
+        {/* Registration Counter commented to be added later*/}
+        {/* <div className="absolute top-3 right-4 z-20 mt-1">
           <div className="inline-flex items-center backdrop-blur-md rounded-full px-6 py-3 border border-white/30">
             <Users className="w-5 h-5 text-white mr-2" />
             <span className="text-white font-semibold">{registrationCount} already registered!</span>
           </div>
-        </div>
+        </div> */}
 
         <button
           onClick={onJoinNow}
-          className="group absolute top-20 right-4 inline-flex items-center justify-center px-12 py-4 text-xl font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-full shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
+          className="group absolute hidden lg:block top-20 right-4 inline-flex items-center justify-center px-12 py-4 text-xl font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-full shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
         >
           <span className="relative z-10">JOIN NOW</span>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
