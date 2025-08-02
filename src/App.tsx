@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import EventLanding from './components/EventLanding';
 import RegistrationForm from './components/RegistrationForm';
 import { saveFormData, getRegistrationCount } from './client';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [currentPage, setCurrentPage] = useState<'landing' | 'registration'>('landing');
