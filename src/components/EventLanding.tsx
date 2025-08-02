@@ -48,19 +48,32 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
             <p className="text-white text-lg">Kamaraj Auditorium</p>
           </div>
         </div> */}
+        {/* <!-- Mobile: 2-column grid (icons | text), Desktop: 3-column grid --> */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12 mt-12">
-          <div className="flex justify-start lg:justify-center">
-            <Calendar className="w-6 h-6 text-white mr-2 lg:mr-4" />
+          {/* <!-- Mobile: Icons column --> */}
+          <div className="flex flex-col gap-2 justify-center items-center lg:hidden">
+            <table className="w-auto items-center justify-center text-center">
+              <tbody>
+                <tr><td><Calendar className="w-6 h-6 text-white mr-4 mb-4" /></td><td><p className="text-white text-2xl text-left mb-4">August 6, 2025</p></td></tr>
+                <tr><td><Clock className="w-6 h-6 text-white mr-4 mb-4" /></td><td><p className="text-white text-2xl text-left mb-4">11:30 AM - 01:30 PM</p></td></tr>
+                <tr><td><MapPin className="w-6 h-6 text-white mr-4 mb-4" /></td><td><p className="text-white text-2xl text-left  mb-4">Kamaraj Auditorium</p></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* <!-- Desktop: Individual items --> */}
+          <div className="hidden lg:flex justify-center items-center">
+            <Calendar className="w-6 h-6 text-white mr-4" />
             <p className="text-white text-lg">August 6, 2025</p>
           </div>
 
-          <div className="flex justify-center lg:justify-center">
-            <Clock className="w-6 h-6 text-white mr-2 lg:mr-4" />
+          <div className="hidden lg:flex justify-center items-center">
+            <Clock className="w-6 h-6 text-white mr-4" />
             <p className="text-white text-lg">11:30 AM - 01:30 PM</p>
           </div>
 
-          <div className="flex justify-end lg:justify-center lg:col-span-1">
-            <MapPin className="w-6 h-6 text-white mr-2 lg:mr-4" />
+          <div className="hidden lg:flex justify-center items-center">
+            <MapPin className="w-6 h-6 text-white mr-4" />
             <p className="text-white text-lg">Kamaraj Auditorium</p>
           </div>
         </div>
