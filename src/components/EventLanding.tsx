@@ -54,7 +54,7 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
           <div className="flex flex-col gap-2 justify-center items-center lg:hidden">
             <table className="w-auto items-center justify-center text-center">
               <tbody>
-                <tr><td><Calendar className="w-6 h-6 text-white mr-4 mb-4" /></td><td><p className="text-white text-2xl text-left mb-4">August 6, 2025</p></td></tr>
+                <tr><td><Calendar className="w-6 h-6 text-white mr-4 mb-4" /></td><td><p className="text-white text-2xl text-left mb-4">Wednesday, August 6, 2025</p></td></tr>
                 <tr><td><Clock className="w-6 h-6 text-white mr-4 mb-4" /></td><td><p className="text-white text-2xl text-left mb-4">11:30 AM - 01:30 PM</p></td></tr>
                 <tr><td><MapPin className="w-6 h-6 text-white mr-4 mb-4" /></td><td><p className="text-white text-2xl text-left  mb-4">Kamaraj Auditorium</p></td></tr>
               </tbody>
@@ -64,7 +64,7 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
           {/* <!-- Desktop: Individual items --> */}
           <div className="hidden lg:flex justify-center items-center">
             <Calendar className="w-6 h-6 text-white mr-4" />
-            <p className="text-white text-lg">August 6, 2025</p>
+            <p className="text-white text-lg">Wednesday, August 6, 2025</p>
           </div>
 
           <div className="hidden lg:flex justify-center items-center">

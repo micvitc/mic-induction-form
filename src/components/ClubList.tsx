@@ -34,7 +34,7 @@ const LogoWithHover = ({ logo, company, description, color }) => {
 
 const LogosSection = () => {
   const logos = [
-    { logo: '/avr-logo.png', company: 'AVR Club', description: 'Join us in real time to explore the virtual.', color: 'bg-red-500' },
+    { logo: '/avr-logo.jpg', company: 'AVR Club', description: 'Join us in real time to explore the virtual.', color: 'bg-red-500' },
     { logo: '/android-club-logo.png', company: 'Android Club', description: 'Empowering Developers, Enhancing the Android Community', color: 'bg-green-500' },
     { logo: '/aic-logo.png', company: 'Artificial Intelligence Club', description: 'Empowering Minds with Artificial Intelligence', color: 'bg-blue-500' },
     { logo: '/mic-logo.png', company: 'Microsoft Innovations Club', description: 'Fueling Tech Innovation. Leading the Future.', color: 'bg-yellow-500' },
