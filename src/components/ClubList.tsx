@@ -34,20 +34,20 @@ const LogoWithHover = ({ logo, company, description, color }) => {
 
 const LogosSection = () => {
   const logos = [
-    { logo: '/avr-logo.png', company: 'AVR Club', description: 'Excellence in digital transformation', color: 'bg-red-500' },
-    { logo: '/android-club-logo.png', company: 'Android Club', description: 'Sustainable solutions for tomorrow', color: 'bg-green-500' },
-    { logo: '/aic-logo.png', company: 'Artificial Intelligence Club', description: 'Leading innovation in technology solutions.', color: 'bg-blue-500' },
-    { logo: '/mic-logo.png', company: 'Microsoft Innovations Club', description: 'Smart infrastructure for smart cities', color: 'bg-yellow-500' },
-    { logo: '/bic-logo.png', company: 'Business Innovation Community', description: 'Creative solutions, infinite possibilities', color: 'bg-purple-500' },
-    { logo: '/cyscom-logo.png', company: 'Cyscom', description: 'Research and development excellence', color: 'bg-indigo-500' },
-    { logo: '/codechef-logo.png', company: 'CodeChef VITC', description: 'Building the future, one step at a time', color: 'bg-pink-500' }
+    { logo: '/avr-logo.png', company: 'AVR Club', description: 'Join us in real time to explore the virtual.', color: 'bg-red-500' },
+    { logo: '/android-club-logo.png', company: 'Android Club', description: 'Empowering Developers, Enhancing the Android Community', color: 'bg-green-500' },
+    { logo: '/aic-logo.png', company: 'Artificial Intelligence Club', description: 'Empowering Minds with Artificial Intelligence', color: 'bg-blue-500' },
+    { logo: '/mic-logo.png', company: 'Microsoft Innovations Club', description: 'Fueling Tech Innovation. Leading the Future.', color: 'bg-yellow-500' },
+    { logo: '/bic-logo.png', company: 'Business Innovation Community', description: 'Pitch. Prototype. Propel.', color: 'bg-purple-500' },
+    { logo: '/cyscom-logo.png', company: 'Cyscom', description: 'Your Entry point to the hacker’s mindset.', color: 'bg-indigo-500' },
+    { logo: '/codechef-logo.png', company: 'CodeChef VITC', description: 'Upskill. Code. Compete. Repeat.', color: 'bg-pink-500' }
   ];
 
   return (
     <div className="w-full py-6">
       <h2 className="text-3xl font-bold text-white text-center mb-6">Clubs Partners</h2>
       
-      <div className="flex flex-wrap lg:flex-nowrap justify-center gap-5 px-4 max-w-full mx-auto">
+      <div className="flex flex-wrap md:flex-nowrap justify-center gap-5 px-4 max-w-full mx-auto">
         {logos.map((logoData, index) => (
           <LogoWithHover
             key={index}
