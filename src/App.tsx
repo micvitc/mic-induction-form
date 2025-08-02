@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import EventLanding from './components/EventLanding';
 import RegistrationForm from './components/RegistrationForm';
 import { saveFormData, getRegistrationCount } from './client';
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   const [currentPage, setCurrentPage] = useState<'landing' | 'registration'>('landing');
@@ -55,6 +56,7 @@ function App() {
     >
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      <Analytics />
       
       {/* Content */}
       <div className="relative z-10">
