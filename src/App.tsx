@@ -3,6 +3,7 @@ import EventLanding from './components/EventLanding';
 import RegistrationForm from './components/RegistrationForm';
 import { saveFormData, getRegistrationCount } from './client';
 import { Analytics } from "@vercel/analytics/react"
+import { SidebarCloseIcon, X } from 'lucide-react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<'landing' | 'registration'>('landing');
@@ -90,17 +91,42 @@ function App() {
       </div>
       {hasSubmitted && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white/10 backdrop-blur-md text-white border-1 border-white rounded-xl shadow-lg p-6 max-w-lg w-full text-center">
-            <h2 className="text-lg font-semibold text-white">
-              You have successfully registered your spot!<br/>
+          <div className="bg-white/10 backdrop-blur-md text-white border border-white/10 rounded-xl shadow-lg p-6 max-w-lg w-full text-center relative">
+            {/* Close button */}
+            {/* <button
+              onClick={() => setHasSubmitted(false)}
+              className="absolute top-3 right-3 text-white hover:text-gray-300 transition-colors duration-200 text-2xl font-bold w-8 h-8 flex items-center justify-center"
+            >
+              <X className="w-6 h-6" />
+            </button> */}
+            
+            <h2 className="text-lg font-semibold text-white mb-6">
+              You have successfully RSVP'd to ClubCon 25!<br/>
               Join us at <br/><b>Kamaraj Auditorium</b> on<b> August 6, 2025 11:00 AM</b>
             </h2>
-            <button
-              onClick={() => setHasSubmitted(false)}
-              className="mt-4 px-4 py-2 bg-white text-black rounded-lg hover:border-black transition"
-            >
-              OK
-            </button>
+            
+            <div className="flex flex-col space-y-3">
+              {/* WhatsApp button */}
+              <button
+                onClick={() => window.open('https://chat.whatsapp.com/IZmx9W9KGbo3a0kftGOfXe?mode=ac_t', '_blank')}
+                className="flex items-center justify-center px-4 py-3 bg-green-300 hover:bg-green-600 text-black rounded-lg transition-colors duration-200 font-semibold"
+              >
+                <img 
+                  src="whatsapp.png" 
+                  alt="WhatsApp" 
+                  className="w-5 h-5 mr-2" 
+                />
+                Join us on WhatsApp
+              </button>
+              
+              {/* OK button */}
+              <button
+                onClick={() => setHasSubmitted(false)}
+                className="px-4 py-2 text-white rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold"
+              >
+                OK
+              </button>
+            </div>
           </div>
         </div>
       )}

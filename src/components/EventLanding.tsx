@@ -18,13 +18,59 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
 
           </div>
         </div>
-        <button
+        {/* <button
           onClick={onJoinNow}
           className="group lg:hidden block inline-flex items-center justify-center px-12 py-4 text-xl font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-full shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
         >
           <span className="relative z-10">JOIN NOW</span>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
-        </button>
+          <div className="p-8 bg-gray-100 min-h-screen flex items-center justify-center">
+        </div>
+        </button> */}
+        <div className="lg:hidden block space-y-6 p-4">
+          <button
+            onClick={onJoinNow}
+            className="group relative inline-flex items-center justify-center px-12 py-4 text-xl font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-full shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
+          >
+            <span className="relative z-10">JOIN NOW</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+          </button>
+
+          <div 
+            className="flex items-center justify-center cursor-pointer hover:border-white/50 transition-all duration-300 transform hover:scale-110 p-2 rounded-lg"
+            onClick={() => window.open('https://chat.whatsapp.com/IZmx9W9KGbo3a0kftGOfXe?mode=ac_t', '_blank')}
+          >
+            <img 
+              src="whatsapp.png" 
+              alt="WhatsApp" 
+              className="w-8 h-8 mr-3" 
+            />
+            <span className="font-semibold text-lg text-white">Join us on WhatsApp</span>
+          </div>
+        </div>
+
+        
+        <div 
+          className="group absolute hidden lg:block top-20 right-4 inline-flex mb-10 items-center justify-center px-12 py-4 text-xl font-bold text-white rounded-full  transition-all duration-300 transform"
+          >
+          <button
+          onClick={onJoinNow}
+          className="group absolute hidden lg:block inline-flex items-center justify-center px-12 py-4 text-xl font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-full shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
+        >
+            <span className="relative z-10">JOIN NOW</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+          </button>
+          <br></br>
+          <div className="flex items-center cursor-pointer hover:border-white/50 transition-all duration-300 transform hover:scale-110"
+            onClick={() => window.open('https://chat.whatsapp.com/IZmx9W9KGbo3a0kftGOfXe?mode=ac_t', '_blank')}>
+            <img 
+              src="whatsapp.png" 
+              alt="WhatsApp" 
+              className="w-8 h-8 mr-3 mt-14 cursor-pointer "
+            />
+            <span className="font-semibold text-lg mt-14">Join us on WhatsApp</span>
+          </div>
+        </div>
 
         
         <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -89,13 +135,7 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
           </div>
         </div> */}
 
-        <button
-          onClick={onJoinNow}
-          className="group absolute hidden lg:block top-20 right-4 inline-flex items-center justify-center px-12 py-4 text-xl font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-full shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
-        >
-          <span className="relative z-10">JOIN NOW</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
-        </button>
+        
         
         <div className="max-w-5xl mx-auto text-center py-16 px-6 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-8">
@@ -143,9 +183,14 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
         </button>
 
 
-        <p className="text-gray-400 mb-8 mt-2 text-sm">
-          Limited seats available
-        </p>
+        <div className="text-sm text-gray-500 mt-4 mb-5 leading-relaxed">
+          <p className="mb-2">
+            This is just an RSVP and doesn't confirm your seat. Please be there early as seats are first come, first serve.
+          </p>
+          <p className="italic">
+            Happy networking!
+          </p>
+        </div>
       </div>
     </div>
   );
