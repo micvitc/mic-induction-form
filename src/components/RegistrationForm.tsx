@@ -218,6 +218,11 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
             </button>
           </div>
         </form>
+        <div className="text-sm text-gray-500 mt-4 mb-5 leading-relaxed">
+          <p className="mb-2">
+            This is just an RSVP and doesn't confirm your seat. Please be there early as seats are first come, first serve.
+          </p>
+        </div>
       </div>
     </div>
   );
