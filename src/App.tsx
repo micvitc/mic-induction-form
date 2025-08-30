@@ -101,14 +101,14 @@ function App() {
             </button> */}
             
             <h2 className="text-lg font-semibold text-white mb-6">
-              You have successfully RSVP'd to ClubCon 25!<br/>
-              Join us at <br/><b>Kamaraj Auditorium</b> on<b> August 6, 2025 11:00 AM</b>
+              You have successfully RSVP'd to remics 25!<br/>
+              Join us at <br/><b>Netaji Auditorium</b> on<b> September 8, 2025 09:00 AM</b>
             </h2>
             
             <div className="flex flex-col space-y-3">
               {/* WhatsApp button */}
               <button
-                onClick={() => window.open('https://chat.whatsapp.com/IZmx9W9KGbo3a0kftGOfXe?mode=ac_t', '_blank')}
+                onClick={() => window.open('https://chat.whatsapp.com/IvnYqfcgkHV1mZjjXovFaD?mode=ac_t', '_blank')}
                 className="flex items-center justify-center px-4 py-3 bg-green-300 hover:bg-green-600 text-black rounded-lg transition-colors duration-200 font-semibold"
               >
                 <img 
