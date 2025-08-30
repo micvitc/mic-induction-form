@@ -14,7 +14,8 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
         {/* Logo */}
         <div className="mb-4">
           <div className="flex flex-col items-center justify-center mt-10">
-            <img src='/mic-logo.png' alt="MIC Logo" className="w-32 h-32" />
+            <img src='/mic-logo.png' alt="MIC Logo" className="w-32 h-32 bg-white/80 rounded-full" />
+            <p className="text-white mt-3">MICROSOFT INNOVATIONS CLUB <br/> presents</p>
             <img src="/logo.png" alt="Event Logo" className="w-128 h-auto" />
           </div>
         </div>
@@ -38,7 +39,7 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
 
           <div 
             className="flex items-center justify-center cursor-pointer hover:border-white/50 transition-all duration-300 transform hover:scale-110 p-2 rounded-lg"
-            onClick={() => window.open('https://chat.whatsapp.com/IZmx9W9KGbo3a0kftGOfXe?mode=ac_t', '_blank')}
+            onClick={() => window.open('https://chat.whatsapp.com/IvnYqfcgkHV1mZjjXovFaD?mode=ac_t', '_blank')}
           >
             <img 
               src="whatsapp.png" 
@@ -62,7 +63,7 @@ const EventLanding: React.FC<EventLandingProps> = ({ onJoinNow,  registrationCou
           </button>
           <br></br>
           <div className="flex items-center cursor-pointer hover:border-white/50 transition-all duration-300 transform hover:scale-110"
-            onClick={() => window.open('https://chat.whatsapp.com/IZmx9W9KGbo3a0kftGOfXe?mode=ac_t', '_blank')}>
+            onClick={() => window.open('https://chat.whatsapp.com/IvnYqfcgkHV1mZjjXovFaD?mode=ac_t', '_blank')}>
             <img 
               src="whatsapp.png" 
               alt="WhatsApp" 
