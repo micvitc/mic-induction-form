@@ -73,7 +73,7 @@ function App() {
       </div>
 
       {/* Animated stars */}
-      <div className="absolute inset-0 overflow-hidden z-5">
+      {/* <div className="absolute inset-0 overflow-hidden z-5">
         {[...Array(100)].map((_, i) => (
           <div
             key={i}
@@ -88,7 +88,7 @@ function App() {
             }}
           />
         ))}
-      </div>
+      </div> */}
       {hasSubmitted && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white/10 backdrop-blur-md text-white border border-white/10 rounded-xl shadow-lg p-6 max-w-lg w-full text-center relative">
