@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, User, Calendar, Hash, Mail, Users, Rocket } from 'lucide-react';
-import { saveFormData } from './client';
+
 
 interface RegistrationFormProps {
   onBack: () => void;
@@ -46,12 +46,23 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
 
     if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.year) newErrors.year = 'Year is required';
-    if (!formData.reg_number.trim()) newErrors.registerNumber = 'Register number is required';
+    
+    // Register number validation: ##XXX[1|5]### format
+    if (!formData.reg_number.trim()) {
+      newErrors.registerNumber = 'Register number is required';
+    } else if (!/^\d{2}[A-Za-z]{3}[15]\d{3}$/.test(formData.reg_number.trim())) {
+      newErrors.registerNumber = 'Register number must be in format ##XXX[1|5]### (e.g., 21ABC1234 or 21ABC5678)';
+    }
+    
+    // Email validation: must end with @vitstudent.ac.in
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
+    } else if (!formData.email.trim().endsWith('@vitstudent.ac.in')) {
+      newErrors.email = 'Email must end with @vitstudent.ac.in';
+    } else if (!/^[^\s@]+@vitstudent\.ac\.in$/.test(formData.email.trim())) {
+      newErrors.email = 'Please enter a valid email address';
     }
+    
     if (!formData.is_attending) newErrors.is_attending = 'Please select an option';
 
     setErrors(newErrors);
@@ -89,7 +100,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
         </div> */}
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-black backdrop-blur-md rounded-3xl p-8 border border-white/60 shadow-2xl">
+        <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/60 shadow-2xl">
           <div className="space-y-6">
             {/* Name */}
             <div>
@@ -102,7 +113,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-xl text-white placeholder-white-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300"
                 placeholder="Enter your full name"
               />
               {errors.name && <p className="text-red-400 text-sm mt-2">{errors.name}</p>}
@@ -140,7 +151,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
                 name="reg_number"
                 value={formData.reg_number}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-white-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300"
                 placeholder="Enter your register number"
               />
               {errors.registerNumber && <p className="text-red-400 text-sm mt-2">{errors.registerNumber}</p>}
@@ -157,10 +168,11 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-white-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300"
                 placeholder="Enter your email address"
               />
               {errors.email && <p className="text-red-400 text-sm mt-2">{errors.email}</p>}
+              <p className='text-white mt-2'>Use your @vitstudent.ac.in email</p>
             </div>
 
             {/* Registration Confirmation */}
