@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ArrowLeft, User, Calendar, Hash, Mail, Users, Rocket } from 'lucide-react';
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 
 interface RegistrationFormProps {
@@ -16,6 +18,10 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
     email: '',
     is_attending: true
   });
+
+  const captchaRef = useRef<ReCAPTCHA>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   
@@ -65,6 +71,10 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
     
     if (!formData.is_attending) newErrors.is_attending = 'Please select an option';
 
+    if (captchaRef === null){
+      newErrors.captcha = 'Please complete the CAPTCHA';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -73,7 +83,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
     e.preventDefault();
     if (validateForm()) {
       console.log('Form submitted:', formData);
-      onSubmit(formData);
+      const capVal = captchaRef!.current.getValue();
+      onSubmit({ token: capVal, ...formData });
     }
   };
 
@@ -209,6 +220,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
             </div>
           </div>
 
+          <ReCAPTCHA className="mt-6"
+                  sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY} 
+                  ref={captchaRef}
+                  onChange={(token)=>setCaptchaToken(token)}
+          />
+          
+
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <button
@@ -219,10 +237,15 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
               <ArrowLeft className="w-5 h-5 mr-2" />
               Back to Home
             </button>
-            
+            {/* {{ console.log(captchaToken); }} */}
             <button
               type="submit"
-              className="flex-1 group relative inline-flex items-center justify-center px-8 py-3 text-lg font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-xl shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105"
+              disabled={!captchaToken} 
+              className={`flex-1 group relative inline-flex items-center justify-center px-8 py-3 text-lg font-bold text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 rounded-xl shadow-2xl shadow-white/50 hover:shadow-white/70 transition-all duration-300 transform hover:scale-105"
+              ${!captchaToken 
+                ? "bg-gray-400 text-gray-700 cursor-not-allowed" 
+                : "text-black bg-gradient-to-r from-white via-gray-200 to-gray-300 hover:shadow-white/70 hover:scale-105"
+              }`}
             >
               <span className="relative z-10">Book your spot . . .</span>
               <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-200 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

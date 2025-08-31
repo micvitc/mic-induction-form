@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { createClient } from '@supabase/supabase-js';
+import axios from 'axios';
 import dotenv from 'dotenv';
 
 const app = express();
@@ -85,9 +86,20 @@ const validateRegistration = (req, res, next) => {
 
 // POST /register endpoint
 app.post('/register', validateRegistration, async (req, res) => {
-  const { name, year, reg_number, email, is_attending } = req.body;
+  const { name, year, reg_number, email, is_attending, token } = req.body;
   
   try {
+    const response = await axios.post(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.SECRET_KEY}&response=${token}`
+      );
+
+    if (!response.data.success) {
+      return res.status(400).json({
+        success: false,
+        message: 'Captcha verification failed'
+      });
+    }
+
     // Check for existing registration by email or register number
     const { data: existing, error: checkError } = await supabase
       .from('registrations')
