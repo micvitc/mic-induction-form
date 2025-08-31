@@ -82,7 +82,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack, onSubmit, r
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Form submitted:', formData);
+      // console.log('Form submitted:', formData);
       const capVal = captchaRef!.current.getValue();
       onSubmit({ token: capVal, ...formData });
     }

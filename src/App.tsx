@@ -23,10 +23,10 @@ function App() {
     const fetchRegistrationCount = async () => {
       try {
         const count = await getRegistrationCount(); // Call to get the count
-        console.log('Initial Registration Count:', count);
+        // console.log('Initial Registration Count:', count);
         setRegistrationCount(count);
       } catch (error) {
-        console.error('Error fetching registration count:', error);
+        // console.error('Error fetching registration count:', error);
       }
     };
 
@@ -35,11 +35,11 @@ function App() {
 
   const handleRegistrationSubmit = async (formData) => {
     // Here you would typically send data to a server
-    console.log('Registration Data:', formData.name, formData.year, formData.reg_number, formData.email, formData.is_attending);
+    // console.log('Registration Data:', formData.name, formData.year, formData.reg_number, formData.email, formData.is_attending);
     const regCount = await saveFormData(formData).catch(error => {
-      console.error('Error saving registration:', error);
+      // console.error('Error saving registration:', error);
     });
-    console.log('Registration Count:', regCount);
+    // console.log('Registration Count:', regCount);
     setHasSubmitted(true);
     setRegistrationCount(regCount); 
     setCurrentPage('landing');
@@ -122,7 +122,7 @@ function App() {
               {/* OK button */}
               <button
                 onClick={() => setHasSubmitted(false)}
-                className="px-4 py-2 text-white rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold"
+                className="px-4 py-2 text-white rounded-lg hover:bg-gray-300 hover:text-black transition-colors duration-200 font-semibold"
               >
                 OK
               </button>
